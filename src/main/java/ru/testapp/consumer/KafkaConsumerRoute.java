@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class KafkaConsumerRoute extends RouteBuilder {
     @Override
     public void configure() {
-        from("kafka:user-topic?brokers=localhost:9092")
+        from("kafka:user-topic?brokers=localhost:29092")
                 .log("Получено сообщение из Kafka: ${body}");
     }
 }
