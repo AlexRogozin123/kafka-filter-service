@@ -26,7 +26,7 @@ public class KafkaRoute extends RouteBuilder {
                 .process(UserUtils::processUser)
                 .setHeader(KafkaConstants.KEY, simple("${body.name}"))
                 .log("Отправляем в Kafka. Ключ: ${header.kafka.KEY}, Тело: ${body}")
-                .to("kafka:user-topic?brokers=localhost:9092")
+                .to("kafka:user-topic?brokers=localhost:29092")
                 .end()
                 .process(exchange -> {
                     List<String> errors = exchange.getProperty("errors", List.class);
